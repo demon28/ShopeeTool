@@ -51,10 +51,10 @@ function Jsuan() {
             val = get(val);
             $("#txt_price").val(val);
 
-            var z9 = val * 0.9;
-            var z8 = val * 0.8;
-            var z7 = val * 0.7;
-            var z6 = val * 0.6;
+            var z9 = val / 0.9;
+            var z8 = val / 0.8;
+            var z7 = val / 0.7;
+            var z6 = val / 0.6;
 
             z9 = get(z9);
             z8 = get(z8);
