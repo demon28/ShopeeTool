@@ -11,7 +11,7 @@ $(document).ready(function () {
     $("#txt_jiesuan").change(function () { Jsuan(); });
     $("#txt_huili").change(function () { Jsuan(); });
     $("#txt_zhekou").change(function () { Jsuan(); });
-
+    $("#txt_zhongliang").change(function () { Jsuan(); });
 
     $("#txt_fprice").change(function () { Fsuan(); });
     $("#txt_flirun").change(function () { Fsuan(); });
@@ -33,6 +33,8 @@ function Jsuan() {
 
             var txt_zhekou = parseFloat($("#txt_zhekou").val());
             var txt_price = $("#txt_price").val();
+            var txt_zhongliang = parseFloat($("#txt_zhongliang").val());
+
 
             //   （（成本+例如+国内物流成本）*4.5）/（1-平台佣金/100）/（1-提现手续费/100）/（1-结算佣金/100）
 
@@ -41,8 +43,17 @@ function Jsuan() {
             var A = A1 * txt_huili;
             var B = 1 - txt_pingtaiyongjin / 100;
             var C = 1 - txt_tixian / 100;
-            var D = 1 - txt_jiesuan / 100;
-            var val = A / B / C / C;
+    var D = 1 - txt_jiesuan / 100;
+    var E = 1;
+    if (txt_zhongliang - 0.5 < 0) {
+        E = 0;
+    } else {
+        E = parseInt(txt_zhongliang / 0.5 -1);
+    }
+
+    E = E * 30;
+
+    var val = (A + E) / B / C / C;
 
 
 
